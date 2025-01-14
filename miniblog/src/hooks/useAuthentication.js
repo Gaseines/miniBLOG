@@ -1,5 +1,5 @@
 // Importa a configuração do Firebase para acessar o banco de dados ou outras funcionalidades
-import { db } from '../firebase/config';
+import { app, db } from '../firebase/config';
 
 // Importa funções específicas do Firebase Authentication
 import {
@@ -25,7 +25,7 @@ export const useAuthentication = () => {
   const [cancelled, setCancelled] = useState(false);
 
   // Inicializa o serviço de autenticação do Firebase
-  const auth = getAuth();
+  const auth = getAuth(app);
 
   // Função para verificar se o componente foi desmontado antes de realizar operações
   function checkIfIsCancelled() {
@@ -80,6 +80,7 @@ export const useAuthentication = () => {
 
       // Atualiza o estado de erro com a mensagem tratada
       setError(systemError);
+      setLoading(false)
     }
   };
 
@@ -88,6 +89,39 @@ export const useAuthentication = () => {
     checkIfIsCancelled()
 
     signOut(auth)
+  }
+
+  //-------------------------LOGIN-------------------------------------------
+
+  const login = async(data) =>{
+
+    checkIfIsCancelled()
+
+    setLoading(true)
+    setError(false)
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password)
+
+      setLoading(false)
+
+    } catch (error) {
+
+      let systemErrorMessage
+
+      if(error.message.includes("user-not-found")){
+        systemErrorMessage = "Usuário não encontrado."
+      }else if (error.message.includes("wrong-password")){
+        systemErrorMessage = "Senha incorreta."
+      }else if(error.message.includes("invalid_login_credentials")){
+        systemErrorMessage = "Usuário ou senha incorretos."
+      }else{
+        systemErrorMessage = "Usuário ou senha incorretos."
+      }
+
+      setError(systemErrorMessage)
+      setLoading(false)
+    }
   }
 
   // Hook para lidar com desmontagem do componente e evitar vazamento de memória
@@ -101,6 +135,7 @@ export const useAuthentication = () => {
     createUser, // Função para criar usuários
     error, // Estado de erro
     loading, // Estado de carregamento
-    logout
+    logout, // Faz o logout da conta
+    login, // Faz o Login do usuario
   };
 };

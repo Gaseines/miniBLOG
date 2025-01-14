@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 //CSS
 import styles from "./Register.module.css";
@@ -26,7 +26,7 @@ const Register = () => {
     }
 
     const res = await createUser(user)
-    console.log(res);
+    
   };
 
   useEffect(() =>{

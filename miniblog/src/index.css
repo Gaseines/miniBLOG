@@ -91,6 +91,13 @@ textarea {
   background-color: #3d4d34;
 }
 
+.btn-dark{
+  border-radius: 0;
+  background-color: var(--laranja);
+  color: var(--preto);
+  border: 1px solid var(--preto);
+}
+
 button[disabled]{
   background-color: #aaa;
 }
