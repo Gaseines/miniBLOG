@@ -39,6 +39,9 @@ export const useAuthentication = () => {
    * @param {Object} data - Objeto contendo os dados do usuário (email, password, displayName)
    * @returns {Object|undefined} - Retorna o objeto do usuário criado ou undefined em caso de erro
    */
+
+
+  //-------------------------------REGISTER-------------------------
   const createUser = async (data) => {
     // Verifica se o hook foi cancelado
     checkIfIsCancelled();
@@ -80,6 +83,13 @@ export const useAuthentication = () => {
     }
   };
 
+  //-------------------------LOGOUT-------------------------------------------
+  const logout = () =>{
+    checkIfIsCancelled()
+
+    signOut(auth)
+  }
+
   // Hook para lidar com desmontagem do componente e evitar vazamento de memória
   useEffect(() => {
     return () => setCancelled(true); // Define o estado como cancelado
@@ -90,6 +100,7 @@ export const useAuthentication = () => {
     auth, // Instância do serviço de autenticação
     createUser, // Função para criar usuários
     error, // Estado de erro
-    loading // Estado de carregamento
+    loading, // Estado de carregamento
+    logout
   };
 };

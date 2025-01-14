@@ -21,6 +21,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CreatePost from "./pages/CreatePost/CreatePost";
+import Loading from "./pages/Loading/Loading";
 
 function App() {
   const [user, setUser] = useState(undefined);
@@ -35,7 +36,7 @@ function App() {
   }, [auth]);
 
   if (loadingUser) {
-    return <p>Carregando...</p>;
+    return <Loading />;
   }
 
   return (
@@ -43,7 +44,6 @@ function App() {
       <AuthProvider value={{ user }}>
         <BrowserRouter basename="/miniBLOG">
           <Navbar />
-
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
