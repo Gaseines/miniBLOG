@@ -80,7 +80,7 @@ const CreatePost = () => {
           />
         </label>
         <label>
-          <span>Imagem do post:</span>
+          <span>Descrição do post:</span>
           <textarea
             name="body"
             required
