@@ -1,0 +1,39 @@
+.post{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.post img{
+    width: 60%;
+    max-width: 700px;
+    max-height: 1000px;
+    border: 2px solid var(--lilas);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.post h3::after{
+    content: "";
+    background-color: var(--preto);
+    height: 1px;
+    width: 70%;
+    position: absolute;
+    bottom: -10px;
+    left: 15%;
+}
+
+.tags{
+    display: flex;
+}
+
+.tags p{
+    margin: 1em;
+    font-weight: bold;
+    color: var(--laranja);
+}
+
+.post a {
+    margin-bottom: 4em;
+}

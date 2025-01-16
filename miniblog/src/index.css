@@ -98,6 +98,45 @@ textarea {
   border: 1px solid var(--preto);
 }
 
+.btn-link{
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--preto);
+  position: relative;
+
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 120px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+
+  transition: .5s;
+}
+
+.btn-link::after{
+  content: "";
+  background-color: var(--preto);
+  width: 35px;
+  height: 1px;
+  position: absolute;
+  left: calc(50% - 17px);
+  bottom: 0;
+
+  transition: .5s;
+}
+
+.btn-link:hover{
+  transform: scale(102%);
+}
+
+.btn-link:hover::after{
+  width: 45px;
+  left: calc(50% - 22.5px);
+}
+
 button[disabled]{
   background-color: #aaa;
 }
