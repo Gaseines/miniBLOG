@@ -19,6 +19,7 @@ const Post = () => {
       {post && (
         <>
           <h1>{post.title}</h1>
+          <div className={styles.criador}><p>Criado por <span>{post.createdBy}</span></p></div>
           <img src={post.image} alt={post.title} />
           <p>{post.body}</p>
           <h3>Este post trata de:</h3>

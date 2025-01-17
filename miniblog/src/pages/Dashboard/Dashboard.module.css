@@ -1,0 +1,38 @@
+.dashboard, .sem_posts, .posts, .alert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.no_posts p{
+    color: var(--lilas);
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.posts{
+    width: 50%;
+    max-width: 700px;
+    border-bottom: 1px solid var(--preto);
+    margin-bottom: 5em;
+}
+
+.title_posts_true span{
+    color: var(--lilas);
+}
+
+.post_header{
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.post_img{
+    width: 100%;
+    
+    margin-bottom: 3em;
+    
+}

@@ -36,3 +36,44 @@
     background-color: var(--preto);
     color: var(--lilas);
 }
+
+@media screen and (max-width: 820px) {
+    .links_list{
+        position: fixed;
+        flex-direction: column;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        background-color: var(--bege);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: 0;
+        align-items: center;
+        padding: 20px;
+
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 99%);
+        transition: all .8s;
+    }
+
+    .navbar ul li{
+        margin: 2em 0em;
+    }
+
+    .burguer{
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .open{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        transition: all .8s;
+    }
+
+    .close{
+        cursor: pointer;
+        transition: .5s;
+    }
+
+    .close:hover{
+        transform: scale(110%);
+    }
+}

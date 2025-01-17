@@ -1,0 +1,24 @@
+.e_post{
+    text-align: center;
+}
+
+.e_post h2{
+    font-size: 2.2em;
+}
+
+.e_enunciado{
+    color: var(--laranja);
+    margin-bottom: 2em;
+}
+
+.e_post img{
+    width: 100%;
+    margin-bottom: 2em;
+    border: 1px solid var(--lilas);
+}
+
+.text_preview{
+    
+    text-align: left;
+    margin-bottom: 5px;
+   }

@@ -16,13 +16,11 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   //deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
-  
   useEffect(() => {
     async function loadData() {
       if (cancelled) return;
 
       setLoading(true);
-
 
       const collectionRef = await collection(db, docCollection);
 
@@ -39,10 +37,18 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
               orderBy("createdAt", "desc")
             )
           );
+        } else if (uid) {
+          q = await query(
+            collectionRef,
+            where(
+              "uid",
+              "==",
+              uid,
+              orderBy("createdAt", "desc")
+            )
+          );
         } else {
-          
           q = await query(collectionRef, orderBy("createdAt", "desc")); //pega os dados da coleção ordenados por data de criação, do mais novo ao mais velho
-          
         }
 
         //Faz a verificação dos dados da coleção caso sejam alterados
@@ -56,7 +62,6 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
         });
 
         setLoading(false);
-        
       } catch (error) {
         console.log(error);
         setError(error.message);
@@ -66,7 +71,6 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
     }
 
     loadData();
-    
   }, [docCollection, documents, search, uid, cancelled]);
 
   useEffect(() => {

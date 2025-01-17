@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 //CSS
 import styles from "./Register.module.css";
+
+//Hooks
 import { useAuthentication } from "../../hooks/useAuthentication";
 
 const Register = () => {
@@ -25,7 +27,7 @@ const Register = () => {
       return;
     }
 
-    const res = await createUser(user)
+    await createUser(user)
     
   };
 
