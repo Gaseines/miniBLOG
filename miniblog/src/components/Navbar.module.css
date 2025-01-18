@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: .5em 2em;
-    
+    z-index: 999;
 }
 
 .brand{
@@ -52,6 +52,7 @@
 
         clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 99%);
         transition: all .8s;
+        z-index: 999;
     }
 
     .navbar ul li{
