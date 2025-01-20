@@ -36,3 +36,22 @@
     margin-bottom: 3em;
     
 }
+
+@media (max-width: 820px) {
+
+    .posts{
+        width: 70%;
+    }
+
+    .post_header h3{
+        text-align: center;
+    }
+
+    .post_header{
+        flex-direction: column;
+    }
+
+    .post_header svg{
+        width: 20px;
+    }
+}

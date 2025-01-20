@@ -6,3 +6,8 @@
     justify-content: center;
     background-color: var(--queimado);
 }
+
+.footer h3{
+    width: 100%;
+    text-align: center;
+}
